@@ -1,81 +1,55 @@
+/* Reset and Base Styles */
 body, html {
     font-family: 'Rubik', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 0;
     margin: 0;
-    background-color: white; /* Dark background color */
+    background-color: white;
     text-decoration: none;
+    font-size: 16px; /* Base font size for rem/em */
 }
 
-@media screen and (max-width: 1024px) {
-    body {
-        font-size: 16px;
-    }
-    .container {
-        width: 90%;
-        margin: auto;
-    }
-}
-
-/* Mobile view (screens smaller than 600px) */
-@media screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
-    .menu {
-        flex-direction: column;
-    }
-}
-
-/* Navigation Styles */
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: #f0e8e8;
-    color: wheat;
-    padding: 20px;
+    padding: 1rem; /* Relative padding */
     z-index: 10;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 50px;
 }
 
 .navTop {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    width: 100%;
+    max-width: 1200px; /* Cap width for large screens */
+    padding: 0 1rem;
 }
-
 
 .Logo {
     position: absolute;
-    top: 0px;  
-    left: 10px; 
-    height: auto; 
+    top: 0.5rem;
+    left: 0.5rem;
 }
 
 .Logo img {
-    max-width: 100px; 
-    height: auto; 
-    display: block; 
-    margin-left: auto;
+    max-width: 6rem; /* Scales with screen */
+    height: auto;
 }
-
-
 
 .search {
     display: flex;
     align-items: center;
     background-color: #333;
     border-radius: 25px;
-    padding: 10px 20px;
+    padding: 0.5rem 1rem;
+    width: 50%; /* Flexible width */
+    max-width: 400px; /* Cap for large screens */
 }
 
 .searchInput {
@@ -85,7 +59,7 @@ nav {
     color: white;
     font-size: 1rem;
     font-weight: 500;
-    width: 90%;
+    width: 100%;
 }
 
 .searchInput::placeholder {
@@ -93,7 +67,7 @@ nav {
 }
 
 .searchIcon {
-    margin-left: 10px;
+    margin-left: 0.5rem;
 }
 
 .limitedoffer {
@@ -101,15 +75,14 @@ nav {
     border-bottom: 2px solid green;
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 0.5rem;
+    right: 1rem;
     color: #e0d85c;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 0.3rem 0.6rem;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     transition: color 0.3s ease, transform 0.3s ease;
-    z-index: 20;
 }
 
 .limitedoffer:hover {
@@ -117,40 +90,17 @@ nav {
     transform: scale(1.1);
 }
 
-/* Video Section Styles */
-.video {
-    margin-top: 100px; /* Adjust as needed */
-    background-color: #111; /* Dark background color */
-    color: #fff; /* Light text color */
-    padding: 40px 0; /* Padding for content inside */
-    text-align: center; /* Center align content */
-}
-
-.videoContainer {
-    max-width: 1000px; /* Adjust maximum width */
-    margin: 0 auto; /* Center the container horizontally */
-    position: relative; /* Ensure relative positioning */
-}
-
-.videoContainer video {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevent inline display issues */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for video */
-}
-
 .navBottom {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
-    padding: 10px;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    flex-wrap: wrap; /* Wrap items on small screens */
 }
 
 .menuItem {
-    position: relative;
     cursor: pointer;
     color: #bbb;
     font-weight: 500;
@@ -158,6 +108,7 @@ nav {
     transition: color 0.3s ease, transform 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    position: relative;
 }
 
 .menuItem::before, .menuItem::after {
@@ -169,15 +120,8 @@ nav {
     transition: width 0.3s ease;
 }
 
-.menuItem::before {
-    top: 0;
-    left: 0;
-}
-
-.menuItem::after {
-    bottom: 0;
-    right: 0;
-}
+.menuItem::before { top: 0; left: 0; }
+.menuItem::after { bottom: 0; right: 0; }
 
 .menuItem:hover {
     color: #fff;
@@ -188,74 +132,86 @@ nav {
     width: 100%;
 }
 
-/* Slider Styles */
+/* Video Section */
+.video {
+    margin-top: 6rem; /* Space for fixed nav */
+    background-color: #111;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.videoContainer {
+    max-width: 100%; /* Full width */
+    padding: 0 1rem; /* Side padding */
+    margin: 0 auto;
+}
+
+.videoContainer video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Slider */
 .slider {
-    margin-top: 100px; /* Space for fixed navbar */
+    margin-top: 6rem;
     overflow: hidden;
-    background-color: transparent;
+    position: relative;
 }
 
 .sliderWrapper {
     display: flex;
-    width: 400%; /* Adjusted to fit all slider items in one row */
-    animation: slide 60s infinite; /* Automatic sliding animation */
+    flex-wrap: nowrap; /* Always horizontal */
+    width: 400%; /* Four slides */
+    transition: transform 0.6s ease-in-out;
+    animation: slide 60s infinite;
 }
 
 @keyframes slide {
-    0%, 100% {
-        transform: translateX(0%);
-    }
-    25% {
-        transform: translateX(-25%);
-    }
-    50% {
-        transform: translateX(-50%);
-    }
-    75% {
-        transform: translateX(-75%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
+    0%, 100% { transform: translateX(0%); }
+    25% { transform: translateX(-25%); }
+    50% { transform: translateX(-50%); }
+    75% { transform: translateX(-75%); }
 }
 
 .sliderItem {
-    width: 100vw;
+    width: 25%; /* 100% / 4 slides */
     display: flex;
-    flex-direction: row-reverse; /* Reverse the row direction */
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around; /* Distribute content */
-    position: relative;
-    flex-shrink: 0;
-    height: 80vh;
-    padding: 20px;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #f8e2d4;
     box-sizing: border-box;
-    background-color: #f8e2d4; /* Background color adjusted */
-    transition: transform 0.6s ease-in-out;
 }
 
 .sliderImg {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
-    z-index: 1;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .sliderTitle {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
     color: #333;
-    z-index: 1;
-    margin-top: 20px;
+    margin: 0.5rem 0;
     text-align: center;
+}
+
+.sliderPrice {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    color: #333;
+    margin: 0.5rem 0;
 }
 
 .buyButton {
     font-size: 1rem;
-    padding: 10px 20px;
-    font-weight: 400;
+    padding: 0.5rem 1rem;
     color: #333;
-    z-index: 1;
     border: 1px solid gray;
     background-color: #111;
     cursor: pointer;
@@ -267,80 +223,108 @@ nav {
     color: black;
 }
 
-.sliderPrice {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #333;
-    z-index: 0;
-    margin-top: 30px;
+/* Media Queries for Slider */
+@media (max-width: 768px) {
+    .sliderWrapper {
+        width: 400%; /* Keep sliding */
+    }
+    .sliderItem {
+        width: 25%;
+        padding: 0.75rem;
+    }
+    .sliderImg {
+        max-width: 60%;
+    }
+    .sliderTitle {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+    }
+    .sliderPrice {
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    }
+    .buyButton {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
 }
 
-/* Features Section Styles */
+@media (max-width: 480px) {
+    .sliderWrapper {
+        width: 400%; /* Still sliding */
+    }
+    .sliderItem {
+        width: 25%;
+        padding: 0.3rem;
+    }
+    .sliderImg {
+        max-width: 50%; /* Shrink more for tiny screens */
+    }
+    .sliderTitle {
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    }
+    .sliderPrice {
+        font-size: clamp(0.7rem, 2vw, 1rem);
+    }
+    .buyButton {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+}
+/* Features */
 .features {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    margin: 40px 0;
-    padding: 20px;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem;
     background-color: #f2f2f2;
 }
 
 .feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    width: clamp(150px, 45%, 200px); /* Scales between sizes */
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    width: 200px;
-    background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    text-align: center;
 }
 
-.feature:hover {
-    transform: translateY(-5px);
-}
+.feature:hover { transform: translateY(-5px); }
 
 .featureImg {
     max-width: 80%;
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 0.5rem;
 }
 
 .featureTitle {
     font-size: 1.5rem;
     font-weight: 700;
     color: #333;
-    margin-bottom: 5px;
 }
 
 .featureDesc {
     font-size: 1rem;
     color: #555;
-    margin-top: 5px;
 }
 
-/* Product Section Styles */
+/* Product */
 .product {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 40px 0;
-    padding: 10px;
+    margin: 2rem 0;
+    padding: 1rem;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .productTitle {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
     font-weight: 700;
     color: #333;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .productImg {
@@ -348,151 +332,86 @@ nav {
     height: auto;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navTop {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .navBottom {
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-    }
-
-    .sliderWrapper {
-        width: 100%;
-    }
-
-    .sliderItem {
-        width: 100%;
-        height: auto; /* Adjusted height */
-        padding: 10px; /* Adjusted padding */
-        margin: 10px 0; /* Adjusted margin */
-        background-color: #f8e2d4; /* Background color adjusted */
-    }
-
-    .feature {
-        width: 100%;
-        max-width: 300px;
-    }
-   
-}
+/* Grid Container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax and gap as needed */
-    gap: 20px;
-    padding: 20px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
 }
 
 .card {
-    background-color: #f9f9f9; /* Light background color */
+    background-color: #f9f9f9;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    overflow: hidden;
+    padding: 1rem;
     transition: transform 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    height: 100%;
     text-align: center;
 }
 
-.card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px 10px 0 0;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    margin: 10px 0;
-}
-
-.card-description {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.card-footer {
-    margin-top: auto;
-}
-
-.buyButton {
-    background-color: #111;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.buyButton:hover {
-    background-color: #de7b17;
-    color: #111;
-}
-
-/* Hover Effect */
 .card:hover {
-    transform: translateY(-5px); /* Lift the card on hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
-}
-.morePhonesButton {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.morePhonesButton:hover {
-    background-color: #0056b3;
-}
-.morePhonesButton:focus {
-    outline: none;
-}
+.card img { max-width: 100%; height: auto; }
+.card-title { font-size: 1.5rem; font-weight: 700; color: #333; margin: 0.5rem 0; }
+.card-description { font-size: 1rem; color: #666; margin-bottom: 0.5rem; }
+.card-footer { margin-top: auto; }
 
-
+/* Footer */
 .footer {
     background-color: #222;
     color: white;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 30px;
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
 
 .footerContainer ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .footerContainer ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 0.5rem;
 }
 
-.footerContainer a {
-    color: #ffcc00;
-    text-decoration: none;
+.footerContainer a { color: #ffcc00; text-decoration: none; }
+.footerContainer a:hover { text-decoration: underline; }
+.footerContainer p { margin-top: 0.5rem; }
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .container { width: 90%; margin: auto; }
+    .navBottom { gap: 1rem; }
+    .sliderImg { max-width: 70%; }
 }
 
-.footerContainer a:hover {
-    text-decoration: underline;
-}
-.footerContainer p {
-    margin-top: 10px;
+@media (max-width: 768px) {
+    .navTop { flex-direction: column; gap: 1rem; }
+    .search { width: 80%; }
+    .limitedoffer { position: static; margin-top: 1rem; }
+    .navBottom { flex-direction: column; gap: 0.5rem; }
+    .sliderItem { flex-direction: column; padding: 0.5rem; }
+    .feature { width: 80%; max-width: 300px; }
 }
 
-
+@media (max-width: 480px) {
+    body { font-size: 14px; }
+    .container { width: 100%; padding: 0.5rem; }
+    .navTop { padding: 0.5rem; }
+    .Logo img { max-width: 4rem; }
+    .search { width: 100%; padding: 0.3rem 0.5rem; }
+    .menuItem { font-size: 0.9rem; }
+    .sliderTitle { font-size: 1.5rem; }
+    .sliderPrice { font-size: 1.2rem; }
+    .buyButton { padding: 0.4rem 0.8rem; }
+    .grid-container { grid-template-columns: 1fr; }
+    .card { padding: 0.5rem; }
+}
